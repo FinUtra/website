@@ -1,0 +1,42 @@
+// app global css in SCSS form
+
+.fw-800{
+  font-weight: 800;
+}
+.fw-900{
+  font-weight: 900;
+}
+.fs-28{
+  font-size: 28px;
+}
+.fs-18{
+  font-size: 18px;
+}
+.fs-20{
+  font-size: 20px;
+}
+.fs-16{
+  font-size: 16px;
+}
+.fs-14{
+  font-size: 14px;
+}
+.fs-54{
+  font-size: 54px;
+}
+.fs-38{
+  font-size: 38px;
+}
+.font-family{
+  font-family: "montserrat", sans-serif;
+}
+.bg-fff0{
+  background-color: #fff0;
+  background-image: radial-gradient(at center center, rgb(255 255 255 / .14) 56%, rgb(84 89 95 / .07) 100%);
+}
+.ls-1{
+  letter-spacing: 1.5px;
+}
+.lh-1{
+  letter-spacing: 1.2px;
+}
