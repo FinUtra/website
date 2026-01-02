@@ -46,7 +46,7 @@
               Our Offices
             </div>
             <div class="font-14 font-montserrat">
-              Musoni teams are based in the Netherlands, Kenya, and Singapore.
+              FinUltra teams are based in the Netherlands, Kenya, and Singapore.
             </div>
           </div>
           <div class="col-12 col-md-4" v-for="i in 2" :key="i">
@@ -98,7 +98,6 @@
   </q-page>
 </template>
 <script setup>
-
 </script>
 <style scoped>
 .main-bg {

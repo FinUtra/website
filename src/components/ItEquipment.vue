@@ -22,7 +22,7 @@
               </div>
               <div class="col-8 col-sm-7">
                 <div class="font-montserrat-bold font-16 q-mb-md">Computer</div>
-                <p class="q-mb-none">All you need to access the Musoni System is a reliable internet connection and a modern web browser. We guarantee an up-time of over 99.9%.</p>
+                <p class="q-mb-none">All you need to access the FinUltra System is a reliable internet connection and a modern web browser. We guarantee an up-time of over 99.9%.</p>
               </div>
             </div>
           </div>
@@ -52,7 +52,7 @@
               </div>
               <div class="col-8 col-sm-7">
                 <div class="font-montserrat-bold font-16 q-mb-md">Scanners</div>
-                <p class="q-mb-none">Improve loan officer efficiency, extend outreach and increase revenue with the revolutionary Musoni DFA.</p>
+                <p class="q-mb-none">Improve loan officer efficiency, extend outreach and increase revenue with the revolutionary FinUltra DFA.</p>
               </div>
             </div>
           </div>
@@ -110,7 +110,7 @@
 </template>
 
 <style scoped>
-.musoni-core-banking {
+.FinUltra-core-banking {
   background-color: #f9f9f9;
   padding-bottom: 2rem;
 }
