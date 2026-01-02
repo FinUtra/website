@@ -192,8 +192,8 @@
             <div class="row q-py-md">
               <div class="col-12 col-sm-6">
                 <q-btn to="/contact-us" class="font-12 contact-btn" flat >Contact Us</q-btn>
-                <q-img class="q-mx-md" src="america-flag.png" width="20px"/>
-                <q-img src="france-flag.png" width="20px"/>
+                <!--                 <q-img class="q-mx-md" src="america-flag.png" width="20px"/>-->
+                <!--                 <q-img src="france-flag.png" width="20px"/>-->
               </div>
               <div class="col-12 col-sm-6 " :class="$q.screen.lt.md ? 'text start' : 'text-right'">
                 <span class="color-e65100">Privacy Policy | Responsible Disclosure </span>

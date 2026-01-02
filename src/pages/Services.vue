@@ -34,31 +34,34 @@
         </div>
       </div>
     </div>
-<!--    services section  -->
+    <!--    services section  -->
     <div :class="$q.screen.lt.md ? 'q-px-md q-py-xl' : 'container q-py-xl'">
-    <div class="q-py-xl">
-      <div class="text-center" >
-        <h2 class="q-my-none font-montserrat-bold font-28">Our Services</h2>
-        <div class="flex flex-center">
-          <div class="elementor-divider"></div>
+      <div class="q-py-xl">
+        <div class="text-center" >
+          <h2 class="q-my-none font-montserrat-bold font-28">Our Services</h2>
+          <div class="flex flex-center">
+            <div class="elementor-divider"></div>
+          </div>
         </div>
-      </div>
-      <div class="row justify-center q-col-gutter-y-xl q-py-xl">
-        <div class="col-12 col-sm-6" v-for="i in cards" :key="i">
-          <div class="row" :class="$q.screen.lt.md ? 'justify-center' : 'justify-end'">
-            <div class="col-7">
-              <q-icon :name="i.icon" size="30px"/>
-              <div>
-                <div class="font-montserrat-bold font-16 q-py-md">{{i.title}}</div>
-                <p class="q-mb-none" v-html="i.subtitle"></p>
+        <div class="row justify-center q-col-gutter-y-xl q-py-xl">
+          <div class="col-12 col-sm-6" v-for="i in cards" :key="i">
+            <div class="row" :class="$q.screen.lt.md ? 'justify-center' : 'justify-end'">
+              <div class="col-7">
+                <q-icon :name="i.icon" size="30px"/>
+                <div>
+                  <div class="font-montserrat-bold font-16 q-py-md">{{i.title}}</div>
+                  <p class="q-mb-none" v-html="i.subtitle"></p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
-<!--   third section  -->
+
+    <ItEquipment/>
+
+    <!--   third section  -->
     <div :class="$q.screen.lt.md ? 'q-px-md q-py-xl' : 'container q-py-xl'">
       <div class="row q-col-gutter-y-xl q-px-xl q-py-xl ">
         <div class="col-12 col-md-6">
@@ -87,6 +90,7 @@
 </template>
 <script setup>
 import {ref} from "vue";
+import ItEquipment from "components/ItEquipment.vue";
 
 const cards = ref([
   {

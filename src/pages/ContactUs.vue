@@ -49,7 +49,7 @@
               Musoni teams are based in the Netherlands, Kenya, and Singapore.
             </div>
           </div>
-          <div class="col-12 col-md-4" v-for="i in 3" :key="i">
+          <div class="col-12 col-md-4" v-for="i in 2" :key="i">
             <div class="row" :class="$q.screen.lt.md ? 'justify-center' : ''">
               <div class="col-6 col-md-2" >
                 <q-icon
