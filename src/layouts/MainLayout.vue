@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="lHh Lpr l">
 
     <q-header  :class="{'bg-white text-black': scrollPosition > 50, 'bg-transparent': scrollPosition <= 50}" class="">
       <div class="row justify-center">
@@ -123,66 +123,88 @@
       <router-view />
     </q-page-container>
 
-    <!--     <q-footer>-->
-    <!--       <div>-->
-    <!--         <div class="footer-background">-->
-    <!--           <div class="q-pa-xl">-->
-    <!--             <div class="row justify-between items-center">-->
+    <q-footer >
+      <div>
+        <div class="footer-background">
+          <div class="q-px-xl q-pt-xl">
+            <div class="row justify-center items-center">
 
-    <!--               &lt;!&ndash; Left Column (Contact) &ndash;&gt;-->
-    <!--               <div class="col-12 col-md-3">-->
-    <!--                 <div class="text-h6">Contact</div>-->
-    <!--                 <div>Musoni Services</div>-->
-    <!--                 <div>De Bouw 107</div>-->
-    <!--                 <div>3991 SZ Houten</div>-->
-    <!--                 <div>Netherlands</div>-->
-    <!--                 <q-btn label="Contact Us" to="/contact-us" class="q-mt-md" flat />-->
-    <!--               </div>-->
+              <!-- Left Column (Contact) -->
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 font-14">
+                <div class=" font-montserrat-bold contact-border q-px-sm">Contact</div>
+                <div class="q-px-sm">FinUltra Services</div>
+                <div class="q-px-sm">De Bouw 107</div>
+                <div class="q-px-sm">3991 SZ Houten</div>
+                <div class="q-px-sm"> Netherlands</div>
+              </div>
 
-    <!--               &lt;!&ndash; Middle Column (Solutions) &ndash;&gt;-->
-    <!--               <div class="col-12 col-md-3">-->
-    <!--                 <div class="text-h6">Solutions</div>-->
-    <!--                 <div>Core Banking System</div>-->
-    <!--                 <div>Musoni Starter</div>-->
-    <!--                 <div>Digital Field Application</div>-->
-    <!--                 <div>Integrating with Musoni</div>-->
-    <!--               </div>-->
+              <!-- Middle Column (Solutions) -->
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 font-14">
+                <div class="font-montserrat-bold contact-border q-px-sm">Solutions</div>
+                <div class="q-px-sm">Core Banking System</div>
+                <div class="q-px-sm">FinUltra
+                  Starter</div>
+                <div class="q-px-sm">Digital Field Application</div>
+                <div class="q-px-sm">Integrating with FinUltra
+                </div>
+              </div>
 
-    <!--               &lt;!&ndash; Middle Column (Why Musoni) &ndash;&gt;-->
-    <!--               <div class="col-12 col-md-3">-->
-    <!--                 <div class="text-h6">Why Musoni?</div>-->
-    <!--                 <div>Our Story</div>-->
-    <!--                 <div>Our Approach</div>-->
-    <!--                 <div>Customer Success Stories</div>-->
-    <!--                 <div>Advantages of the Cloud</div>-->
-    <!--               </div>-->
+              <!-- Middle Column (Why FinUltra
+      ) -->
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 font-14">
+                <div class="font-montserrat-bold contact-border q-px-sm">Why FinUltra
+                  ?</div>
+                <div class="q-px-sm">Our Story</div>
+                <div class="q-px-sm">Our Approach</div>
+                <div class="q-px-sm">Customer Success Stories</div>
+                <div class="q-px-sm">Advantages of the Cloud</div>
+              </div>
 
-    <!--               &lt;!&ndash; Right Column (Social Links) &ndash;&gt;-->
-    <!--               <div class="col-12 col-md-3 text-center">-->
-    <!--                 <div class="row justify-center">-->
-    <!--                   <a href="https://www.linkedin.com" target="_blank" class="q-mx-xs">-->
-    <!--                     <q-icon name="logo-linkedin" size="30px" />-->
-    <!--                   </a>-->
-    <!--                   <a href="https://www.twitter.com" target="_blank" class="q-mx-xs">-->
-    <!--                     <q-icon name="logo-twitter" size="30px" />-->
-    <!--                   </a>-->
-    <!--                   <a href="https://www.youtube.com" target="_blank" class="q-mx-xs">-->
-    <!--                     <q-icon name="logo-youtube" size="30px" />-->
-    <!--                   </a>-->
-    <!--                 </div>-->
-    <!--               </div>-->
-    <!--             </div>-->
+              <!-- Right Column (Social Links) -->
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div :class="$q.screen.lt.lg ? 'text-start q-py-md': 'text-right' ">
+                  <q-img
+                      width="150px"
+                      height="50px"
+                      src="~assets/logo.png"
+                      alt="Finultra logo"
+                      role="link"
+                      class=""
+                  />
 
-    <!--             &lt;!&ndash; Bottom Section (Privacy & Copyright) &ndash;&gt;-->
-    <!--             <div class="q-mt-md text-center text-subtitle2">-->
-    <!--               <span>Privacy Policy | Responsible Disclosure</span>-->
-    <!--               <div class="q-mt-xs text-h6">© 2024 Musoni Services. All rights reserved.</div>-->
-    <!--             </div>-->
-    <!--           </div>-->
-    <!--         </div>-->
-    <!--       </div>-->
+                  <div class="font-14 font-montserrat q-py-sm"> <b>Finultra</b> core banking platform</div>
+                  <div class="row " :class="$q.screen.lt.lg ? 'text-start': 'justify-end' ">
+                    <a href="https://www.linkedin.com" target="_blank" class="q-mx-xs">
+                      <q-img width="30px" src="linkedin.svg"/>
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank" class="q-mx-xs">
+                      <q-img width="30px" src="twitter.svg" size="30px" />
+                    </a>
+                    <a href="https://www.youtube.com" target="_blank" class="q-mx-xs">
+                      <q-img width="30px" src="youtube.svg" size="30px" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <!--     </q-footer>-->
+            <!-- Bottom Section (Privacy & Copyright) -->
+            <div class="row q-py-md">
+              <div class="col-12 col-sm-6">
+                <q-btn to="/contact-us" class="font-12 contact-btn" flat >Contact Us</q-btn>
+                <q-img class="q-mx-md" src="america-flag.png" width="20px"/>
+                <q-img src="france-flag.png" width="20px"/>
+              </div>
+              <div class="col-12 col-sm-6 " :class="$q.screen.lt.md ? 'text start' : 'text-right'">
+                <span class="color-e65100">Privacy Policy | Responsible Disclosure </span>
+                <span class=""> © 2025 FinUltra Services. All rights reserved.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </q-footer>
 
   </q-layout>
 </template>
@@ -203,14 +225,6 @@ const linksList = [
   {
     title: "OUR SERVICES",
     link: "/our-services",
-  },
-  {
-    title: "WORK",
-    link: "/work",
-  },
-  {
-    title: "BLOG",
-    link: "/blog",
   },
   // {
   //   title: "CAREER",
@@ -321,6 +335,29 @@ export default defineComponent({
 }
 .footer-color {
   background-color: #191919;
+}
+
+.contact-border{
+  border-left: 3px solid #e65100;
+}
+.color-e65100{
+  color: #e65100;
+}
+.contact-btn{
+  border: 1px solid white;
+  background-color: #fff0;
+  border-radius: 50px;
+  color: #e65100;
+}
+.footer-background{
+  background-image: url("footer_bg.gif");
+  background-color: #D8D8D8;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+:deep(.q-footer) {
+  color: black;
 }
 
 </style>
