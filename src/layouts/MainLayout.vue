@@ -322,7 +322,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .label:deep(.q-tab__label){
-  font-size: 22px !important;
+  font-size: 16px !important;
   font-weight: 700 !important;
 }
 .mobile-logo img {

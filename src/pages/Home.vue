@@ -7,7 +7,7 @@
             <div class="q-pl-md q-pl-md-xl left-border"  
             >
               <h1 class="q-my-none font-montserrat-bold  line-height-1-2"
-                  :class="$q.screen.lt.md ? 'font-36' : 'font-55' "
+                  :class="$q.screen.lt.md ? 'font-36' : 'font-40' "
               >
                 Finultra core banking <br> platform
               </h1>
