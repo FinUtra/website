@@ -1,157 +1,272 @@
 <template>
-  <q-page class="mt-navbar">
-    <div>
-      <div class="row main-bg">
-        <div class="black-overlay"></div>
-        <div class="col-12 col-lg-7 text-white content-above">
-          <div class="row  q-px-xl">
-            <div class="q-pl-md q-pl-md-xl left-border">
-              <h1 class="q-my-none font-montserrat-bold  line-height-1-2 font-28">
-                Contact Us
-              </h1>
-            </div>
-          </div>
-        </div>
-        <div class="white-div"></div>
-      </div>
-    </div>
+  <q-page class="contact">
 
-    <!-- Second section 0 -->
-    <div class="q-mr-md-xl q-py-xl bg-white">
-      <div class="row  q-mr-md-xl"
-           :class="$q.screen.lt.md ? 'justify-center' : 'justify-end'"
-      >
-        <div class="col-12 col-md-9"
-             :class="$q.screen.lt.md ? 'text-center' : 'text-right'"
-        >
-          <div class="row"
-               :class="$q.screen.lt.md ? 'justify-center' : 'justify-end'">
-            <p class="q-mb-none  font-21 font-montserrat"
-               :class="$q.screen.lt.md ? 'text-center q-px-md' : 'text-right'"
-            >
-              If you have a general enquiry about FinUltra, please send an email to <span class="color-e65100">simba@finultrasolution.com</span> and we’ll be in touch as quickly as possible.
-            </p>
-          </div>
+    <!-- Intro -->
+    <section class="c-hero">
+      <div class="fu-wrap c-hero__inner">
+        <div class="fu-eyebrow">Contact us</div>
+        <h1 class="fu-h1">Let’s talk about your institution.</h1>
+        <p class="fu-lead">For a general enquiry, email <a :href="`mailto:${contact.email}`" class="fu-link">{{ contact.email }}</a> or call <a :href="contact.phoneHref" class="fu-link">{{ contact.phone }}</a> — we’ll be in touch as quickly as possible.</p>
+        <div class="c-hero__cards fu-cols-3">
+          <a :href="contact.phoneHref" class="c-card">
+            <span class="fu-icon-tile"><q-icon name="call" size="24px" /></span>
+            <span><strong>Call us</strong><span>{{ contact.phone }}</span></span>
+          </a>
+          <a :href="`mailto:${contact.email}`" class="c-card">
+            <span class="fu-icon-tile fu-icon-tile--orange"><q-icon name="mail" size="24px" /></span>
+            <span><strong>Email us</strong><span>{{ contact.email }}</span></span>
+          </a>
+          <a href="#demo" class="c-card">
+            <span class="fu-icon-tile"><q-icon name="event" size="24px" /></span>
+            <span><strong>Book a demo</strong><span>30 minutes, no obligation</span></span>
+          </a>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!--  section 2-->
-    <div class="office-bg">
-      <div :class="$q.screen.lt.md ? 'q-px-md' : 'container'">
+    <!-- Demo booking -->
+    <section id="demo" class="c-demo">
+      <div class="fu-wrap c-demo__inner">
+        <div class="c-demo__copy">
+          <h2 class="fu-h2 q-mt-none">Book a personalised demo</h2>
+          <p class="c-demo__lead">30 minutes with a product specialist, using your own loan and savings products.</p>
+          <ul class="c-demo__list">
+            <li v-for="b in demoBenefits" :key="b"><q-icon name="check_circle" size="20px" />{{ b }}</li>
+          </ul>
+          <div class="c-demo__offices">
+            <div v-for="o in contact.offices" :key="o.city" class="c-office">
+              <q-icon name="location_on" size="22px" />
+              <div><strong>{{ o.city }}, {{ o.country }}</strong><div>{{ o.address }}</div></div>
+            </div>
+          </div>
+        </div>
 
-        <div class="row q-col-gutter-y-lg q-py-xl q-px-xl" :class="$q.screen.lt.md? 'text-center' : ''" >
-          <div class="col-12">
-            <div class="font-27 font-montserrat-bold line-height-1-2">
-              Our Offices
-            </div>
-            <div class="font-14 font-montserrat">
-              FinUltra teams are based in the Netherlands, Kenya, and Singapore.
-            </div>
+        <form class="c-form" @submit.prevent="submit">
+          <div class="fu-field">
+            <label for="c-first">First name</label>
+            <input id="c-first" v-model="form.first" class="fu-input" type="text" autocomplete="given-name" required>
           </div>
-          <div class="col-12 col-md-4" v-for="i in 2" :key="i">
-            <div class="row" :class="$q.screen.lt.md ? 'justify-center' : ''">
-              <div class="col-6 col-md-2" >
-                <q-icon
-                    class="icon-bg q-pa-sm"
-                    name="location_on"
-                    color="white"
-                    size="30px"
-                />
-              </div>
-              <div class="col-8 col-sm-7">
-                <div class="font-16 font-montserrat-bold">FinUltra Solutions</div>
-                <div class="font-14 font-montserrat">
-                  12 Pippendale Borrowdale <br>
-                  Harare Zimbabwe and <br>
-                  6 Ibex Hill Lusaka Zambia<br>
-                  +263771804964
-                </div>
-              </div>
-            </div>
+          <div class="fu-field">
+            <label for="c-last">Last name</label>
+            <input id="c-last" v-model="form.last" class="fu-input" type="text" autocomplete="family-name" required>
           </div>
+          <div class="fu-field">
+            <label for="c-email">Work email</label>
+            <input id="c-email" v-model="form.email" class="fu-input" type="email" autocomplete="email" required>
+          </div>
+          <div class="fu-field">
+            <label for="c-phone">Phone</label>
+            <input id="c-phone" v-model="form.phone" class="fu-input" type="tel" autocomplete="tel">
+          </div>
+          <div class="fu-field">
+            <label for="c-org">Institution</label>
+            <input id="c-org" v-model="form.org" class="fu-input" type="text" autocomplete="organization" required>
+          </div>
+          <div class="fu-field">
+            <label for="c-type">Institution type</label>
+            <select id="c-type" v-model="form.type" class="fu-input">
+              <option value="">Select…</option>
+              <option v-for="a in audiences" :key="a.id" :value="a.title">{{ a.title }}</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="fu-field c-form__full">
+            <label for="c-interest">Interested in</label>
+            <select id="c-interest" v-model="form.interest" class="fu-input">
+              <option value="software">Core banking software + DFA</option>
+              <option value="equipment">IT equipment &amp; maintenance</option>
+              <option value="both">Both</option>
+            </select>
+          </div>
+          <div class="fu-field c-form__full">
+            <label for="c-msg">Anything we should know?</label>
+            <textarea id="c-msg" v-model="form.message" class="fu-input" rows="4"></textarea>
+          </div>
+          <label class="c-form__full c-form__consent">
+            <input v-model="form.consent" type="checkbox" required>
+            I agree to FinUltra contacting me about this request.
+          </label>
+          <button type="submit" class="fu-btn fu-btn--orange c-form__full c-form__submit">Request my demo</button>
+          <p v-if="sent" class="c-form__full c-form__sent" role="status">Your email app should open with your request ready to send. If it doesn’t, email us at <a :href="`mailto:${contact.email}`">{{ contact.email }}</a>.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Support -->
+    <section id="support" class="fu-section">
+      <div class="fu-wrap fu-split">
+        <div>
+          <div class="fu-eyebrow">Existing clients</div>
+          <h2 class="fu-h2">Need help with FinUltra?</h2>
+          <p class="fu-lead q-mt-md">Our support team handles post-implementation support, maintenance and upgrades, and IT equipment servicing.</p>
+        </div>
+        <div class="c-support">
+          <a :href="`mailto:${contact.email}?subject=${encodeURIComponent('FinUltra support request')}`" class="c-card">
+            <span class="fu-icon-tile"><q-icon name="support_agent" size="24px" /></span>
+            <span><strong>Email support</strong><span>Describe the issue and your branch</span></span>
+          </a>
+          <a :href="contact.phoneHref" class="c-card">
+            <span class="fu-icon-tile fu-icon-tile--orange"><q-icon name="phone_in_talk" size="24px" /></span>
+            <span><strong>Urgent? Call us</strong><span>{{ contact.phone }}</span></span>
+          </a>
         </div>
       </div>
-    </div>
-    <!--  second last section -->
-    <div>
-      <div class="row justify-center q-py-xl q-px-xl">
-        <div class="col-12 col-sm-8">
-          <div class="row justify-center q-py-lg">
-            <div class="col-12 col-md-8">
-              <div class="font-21 font-montserrat-bold">Book a demo with one of our team today</div>
-              <div class="font-16 font-montserrat">
-                <q-icon name="check_circle" size="15px"/>
-                No obligation to purchase
-                <q-icon name="check_circle" size="15px"/>
-                Fully enabled system
-                <q-icon name="check_circle" size="15px"/>
-                No credit card required</div>
-            </div>
-            <div class="col-12 col-md-4" :class="$q.screen.gt.md ? 'text-right' : 'q-mt-md'">
-              <q-btn class="font-14 font-montserrat-semibold bg-btn text-white q-py-md q-px-lg">BOOK A DEMO</q-btn>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
+
   </q-page>
 </template>
+
 <script setup>
+import { reactive, ref } from 'vue'
+import { contact, audiences } from 'src/data/site'
+import { useSeo } from 'src/composables/useSeo'
+
+useSeo('contact')
+
+// Other pages hand over form values in history state (never the URL)
+const prefill = (typeof window !== 'undefined' && window.history.state?.prefill) || {}
+const text = v => (typeof v === 'string' ? v : '')
+
+const demoBenefits = [
+  'A walkthrough tailored to your institution type',
+  'Migration plan and timeline',
+  'Pricing for software and hardware',
+  'No obligation to purchase — fully enabled system'
+]
+
+const form = reactive({
+  first: '',
+  last: '',
+  email: text(prefill.email),
+  phone: '',
+  org: '',
+  type: text(prefill.type),
+  interest: ['software', 'equipment', 'both'].includes(prefill.interest) ? prefill.interest : 'software',
+  message: text(prefill.message),
+  consent: false
+})
+
+const sent = ref(false)
+
+const interestLabels = {
+  software: 'Core banking software + DFA',
+  equipment: 'IT equipment & maintenance',
+  both: 'Software and IT equipment'
+}
+
+function submit () {
+  const subject = `Demo request — ${form.org}`
+  const body = [
+    `Name: ${form.first} ${form.last}`,
+    `Email: ${form.email}`,
+    `Phone: ${form.phone || '-'}`,
+    `Institution: ${form.org}`,
+    `Institution type: ${form.type || '-'}`,
+    `Interested in: ${interestLabels[form.interest]}`,
+    '',
+    form.message
+  ].join('\n')
+  window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  sent.value = true
+}
 </script>
-<style scoped>
-.main-bg {
-  position: relative;
-  background: url('/contact-us.jpg') top center/cover no-repeat;
-  width: 100%;
-  height: 50vh;
-  min-height: 50vh;
+
+<style lang="scss" scoped>
+.c-hero { background: $fu-soft; }
+.c-hero__inner {
+  padding-top: 72px;
+  padding-bottom: 72px;
   display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .fu-lead { max-width: 720px; }
+}
+.c-hero__cards {
+  margin-top: 16px;
+  gap: 16px;
+}
+.c-card {
+  display: flex;
+  gap: 16px;
   align-items: center;
-  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid $fu-line;
+  border-radius: 16px;
+  padding: 20px;
+  color: $fu-ink;
+  transition: border-color .15s;
+  strong { display: block; color: $fu-navy; }
+  span span { color: #5A5F80; font-size: 15px; word-break: break-word; }
+  &:hover { border-color: $fu-blue; color: $fu-ink; }
 }
 
-.white-div {
-  background-color: white;
-  position: absolute;
-  bottom: -25%;
-  height: 50%;
-  width: 100%;
-  transform: skew(0deg, -6deg);
-  z-index: 1;
+.c-demo { background: $fu-blue; }
+.c-demo__inner {
+  padding-top: 96px;
+  padding-bottom: 96px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px;
+  align-items: flex-start;
 }
-.office-bg{
-  background-color: #F0F0F0;
-  background-image: url("/FinUltra.jpg");
-  background-position: center center;
-  background-size: cover;
+.c-demo__copy {
+  flex: 1 1 380px;
+  min-width: 0;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .fu-h2 { color: #FFFFFF; }
 }
-.left-border {
-  border-left: 3px solid #e65100;
+.c-demo__lead { margin: 0; color: #D5D9F5; font-size: 18px; }
+.c-demo__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  li { display: flex; gap: 12px; align-items: center; }
+  .q-icon { color: $fu-orange; }
 }
-.bg-btn{
-  background-color: #e65100;
-  border-radius: 30px;
+.c-demo__offices { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.c-office {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, .08);
+  border-radius: 12px;
+  padding: 16px;
+  .q-icon { color: $fu-orange; }
+  div div { color: #D5D9F5; }
 }
-.color-e65100{
-  color: #e65100;
+.c-form {
+  flex: 1 1 460px;
+  min-width: 0;
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: clamp(24px, 4vw, 36px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 16px;
+  box-sizing: border-box;
 }
+.c-form__full { grid-column: 1 / -1; }
+.c-form__consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 14px;
+  color: $fu-muted;
+  input { width: 18px; height: 18px; margin-top: 2px; accent-color: $fu-blue; }
+}
+.c-form__submit { min-height: 52px; font-size: 16px; }
+.c-form__sent { margin: 0; color: $fu-muted; font-size: 14px; }
 
-.icon-bg{
-  background-color: #e65100;
-  border-radius: 100px;
-}
-.black-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55); /* adjust darkness */
-  z-index: 1;
-}
+.c-support { display: flex; flex-direction: column; gap: 16px; }
 
-/* Content above overlay */
-.content-above {
-  position: relative;
-  z-index: 2;
+@media (max-width: 760px) {
+  .c-hero__inner { padding-top: 48px; padding-bottom: 48px; }
+  .c-demo__inner { padding-top: 64px; padding-bottom: 64px; gap: 40px; }
 }
-
 </style>
