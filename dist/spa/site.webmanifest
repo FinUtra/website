@@ -1,0 +1,13 @@
+{
+  "name": "FinUltra — Core Banking Software",
+  "short_name": "FinUltra",
+  "description": "Cloud core banking software for microfinance institutions, SACCOs and lenders.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FFFFFF",
+  "theme_color": "#2B3AAB",
+  "icons": [
+    { "src": "/icons/icon-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

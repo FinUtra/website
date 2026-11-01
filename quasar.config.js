@@ -3,6 +3,7 @@
 
 import { defineConfig } from '#q-app/wrappers'
 import { fileURLToPath } from 'node:url'
+import { prerenderSeo } from './scripts/seo-prerender.mjs'
 
 export default defineConfig((ctx) => {
   return {
@@ -44,6 +45,11 @@ export default defineConfig((ctx) => {
       },
 
       vueRouterMode: 'history', // available values: 'hash', 'history'
+
+      // Per-page SEO HTML, sitemap.xml and robots.txt (scripts/seo-prerender.mjs)
+      afterBuild ({ quasarConf }) {
+        if (ctx.mode.spa) prerenderSeo(quasarConf.build.distDir)
+      },
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,

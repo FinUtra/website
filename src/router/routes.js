@@ -3,11 +3,13 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      // { path: '', component: () => import('pages/IndexPage.vue') },
-      { path: '/', component: () => import('pages/Home.vue') },
-      { path: '/contact-us', component: () => import('pages/ContactUs.vue') },
-      { path: '/our-services', component: () => import('pages/Services.vue') },
-      { path: '/about-us', component: () => import('pages/About.vue') },
+      { path: '', component: () => import('pages/Home.vue') },
+      { path: 'platform', component: () => import('pages/Platform.vue') },
+      { path: 'solutions', component: () => import('pages/Solutions.vue') },
+      { path: 'about-us', component: () => import('pages/About.vue') },
+      { path: 'contact-us', component: () => import('pages/ContactUs.vue') },
+      // Old URL from the previous site
+      { path: 'our-services', redirect: '/solutions' },
     ]
   },
 
